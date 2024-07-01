@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
@@ -12,11 +11,12 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
     completed = db.Column(db.Boolean, default=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)  # Field to store the date the todo was created
 
 # Create the SQLite database
 with app.app_context():
     db.create_all()
+
+    from flask import render_template, request, redirect, url_for
 
 # Route to display all todos
 @app.route('/')
@@ -49,7 +49,20 @@ def delete_todo(id):
     db.session.commit()
     return redirect(url_for('show_todos'))
 
+# alphabetically sort the todos
+@app.route('/sort')
+def sort_todos():
+    todos = Todo.query.order_by(Todo.content.asc()).all() # .asc() is ascending order for sorting. Descending would be .desc()
+    return render_template('index.html', todos=todos)
+
+# Clear all todos from the list
+@app.route('/clear_all')
+def clear_todos():
+    todos = Todo.query.all()
+    for todo in todos:
+        db.session.delete(todo)
+    db.session.commit() # commit the changes back to the database
+    return redirect(url_for('show_todos')) # redirect back to the todos page after clearing the list
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-# JTC SU 24

@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
     <div class="container">
-        <h1>Todo List by Rena Glare</h1>
+        <h1>Todo List</h1>
         <ul class="todos">
             {% for todo in todos %}
             <li>
-                {{ todo.content }} - Created on: {{ todo.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
-                <!-- Display the created date and time -->
+                {{ todo.content }}
                 <a href="{{ url_for('toggle_complete', id=todo.id) }}">
                     {% if todo.completed %}
                     (Completed)
