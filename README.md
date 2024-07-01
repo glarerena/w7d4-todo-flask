@@ -1,4 +1,4 @@
-- DISLCAIMER - It does not work, the walkthrough part from class is working, my add-on of the local date and time is not working. I turned this in as is, to not get a late assignment submitted.
+
 - This still needs debugging. And I will work on it, until it is fixed. 6/30/2024 11.34 EST RG
 - # Flask Todo APP
   
