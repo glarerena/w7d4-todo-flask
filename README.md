@@ -19,7 +19,17 @@ A simple TOdo application built with Flask and SQLAlchemy.
 -Then to activate it run the following command: source venv/Scripts/activate
 
 - ## Installation
-- 1. Clone the repository
-  2. Optional(Create and activate a virtual environment) This will be different for Windows, Apple, and Linux users.
-  3. Initialize the database.
-  4. Run the application. 
+Clone the repository
+
+Optional(Create and activate a virtual environment) This will be different for Windows, Apple, and Linux users.
+
+This is how to activate for windows users in the Git Bash terminal. - source venv/Scripts/activate
+
+http://127.0.0.1:5000/ go to this URL on your local machine
+
+You are able to add, complete, and delete tasks by using this TODO app. Have fun!!
+
+  
+  
+
+
