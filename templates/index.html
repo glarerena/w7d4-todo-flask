@@ -14,8 +14,8 @@
         <ul class="todos">
             {% for todo in todos %}
             <li>
-                {{ todo.content }} - Created on: {{ todo.created_at.strftime('%Y-%m-%d') }}
-                <!-- Display the created date -->
+                {{ todo.content }} - Created on: {{ todo.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                <!-- Display the created date and time -->
                 <a href="{{ url_for('toggle_complete', id=todo.id) }}">
                     {% if todo.completed %}
                     (Completed)

@@ -15,6 +15,9 @@ A simple TOdo application built with Flask and SQLAlchemy.
 - Flask
 - Flask-SQLAlchemy
 
+-Make sure to activate the venv, you are in the correct working directory.
+-Then to activate it run the following command: source venv/Scripts/activate
+
 - ## Installation
 - 1. Clone the repository
   2. Optional(Create and activate a virtual environment) This will be different for Windows, Apple, and Linux users.
